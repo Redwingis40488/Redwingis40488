@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motivational Clock</title>
+  <style>
+    body {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background: url('background-image.jpg') center/cover no-repeat; /* Ganti 'background-image.jpg' dengan nama file gambar background */
+    }
+
+    .clock-container {
+      text-align: center;
+      color: white; /* Warna teks untuk kontras dengan background */
+      margin-top: 20px; /* Jarak dari atas */
+    }
+
+    .motivation {
+      font-size: 1em; /* Ukuran tulisan lebih kecil */
+      color: #2c3e50; /* Warna biru tua */
+    }
+
+    .clock {
+      font-size: 2em; /* Ukuran jam lebih kecil */
+      color: #3498db; /* Warna biru */
+    }
+  </style>
+</head>
+<body>
+  <div class="clock-container">
+    <div class="motivation">Semangat pagi! Jadikan hari ini luar biasa.</div>
+    <div class="clock" id="clock"></div>
+  </div>
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const hours = now.getHours().toString().padStart(2, '0');
+      const minutes = now.getMinutes().toString().padStart(2, '0');
+      const seconds = now.getSeconds().toString().padStart(2, '0');
+
+      const clockElement = document.getElementById('clock');
+      clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    // Update clock every second
+    setInterval(updateClock, 1000);
+
+    // Initial update
+    updateClock();
+  </script>
+</body>
+</html>
